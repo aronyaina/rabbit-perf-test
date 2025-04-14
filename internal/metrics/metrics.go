@@ -8,7 +8,7 @@ import (
 )
 
 type Metrics struct {
-	publishedMessages  prometheus.Counter
+	publishedMessages prometheus.Counter
 	consumedMessages  prometheus.Counter
 	publishLatency    prometheus.Histogram
 	consumeLatency    prometheus.Histogram
@@ -51,4 +51,5 @@ func (m *Metrics) RecordPublishLatency(d time.Duration) {
 
 func (m *Metrics) RecordConsumeLatency(d time.Duration) {
 	m.consumeLatency.Observe(d.Seconds())
-} 
+}
+

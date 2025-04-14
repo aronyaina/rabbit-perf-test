@@ -47,12 +47,12 @@ func New(cfg *config.Config, metrics *metrics.Metrics) (*Consumer, error) {
 
 	// Declare queue
 	_, err = ch.QueueDeclare(
-		cfg.RabbitMQ.Queue, // name
-		true,               // durable
-		cfg.Test.AutoDelete,// auto-delete
-		false,              // exclusive
-		false,              // no-wait
-		nil,                // arguments
+		cfg.RabbitMQ.Queue,  // name
+		true,                // durable
+		cfg.Test.AutoDelete, // auto-delete
+		false,               // exclusive
+		false,               // no-wait
+		nil,                 // arguments
 	)
 	if err != nil {
 		ch.Close()
@@ -130,4 +130,5 @@ func (c *Consumer) cleanup() {
 	if c.conn != nil {
 		c.conn.Close()
 	}
-} 
+}
+
